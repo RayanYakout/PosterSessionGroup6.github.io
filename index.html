@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Performing Under Pressure</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #ffffff;
+    }
+    header {
+      background-color: #003a63;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    header p {
+      margin-top: 5px;
+      font-size: 1em;
+      color: #d3e6f5;
+    }
+    header img.logo {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      height: 20px;
+    }
+    nav {
+      background-color: #86bc25;
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    nav select {
+      margin: 5px;
+      padding: 5px;
+      border-radius: 4px;
+      border: none;
+      font-size: 1em;
+    }
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+    iframe {
+      width: 100%;
+      height: 85vh;
+      border: none;
+      display: none;
+    }
+    #placeholder {
+      max-width: 90%;
+      height: auto;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img class="logo" src="FH-Technikum-Wien-Logo-400x282.jpg" alt="FH Technikum Wien Logo">
+    <h1>Performing Under Pressure</h1>
+    <p>Authors: Laura Hall*, Melissa Li*, Melanie Schwach*, Rayyan Yakout*, Elias Ellersdorfer, Salih Casurovic, George Gourgi, Gordin Zupkovitz, Elisabeth Simböck* · FH Technikum Wien</p>
+  </header>
+
+  <nav>
+    <select onchange="loadPage(this.value)">
+      <option value="">-- Basic Analysis --</option>
+      <option value="pca_cb_large.html">PCA</option>
+      <option value="heatmap10_final_onfigure.html">Heatmap</option>
+      <option value="volcano_thresholded_named.html">Volcano Plot</option>
+      <option value="ma_plot_with_fullnames.html">MA Plot</option>
+    </select>
+
+    <select onchange="loadPage(this.value)">
+      <option value="">-- Network Visualization --</option>
+      <option value="network_upregulated.html">Upregulated</option>
+      <option value="network_downregulated_GO.html">Downregulated</option>
+    </select>
+
+    <select onchange="loadPage(this.value)">
+      <option value="">-- Enrichment Analysis --</option>
+      <option value="enrichment_upregulated_dotplot_with_shapes.html">Upregulated</option>
+      <option value="enrichment_downregulated_dotplot_with_names.html">Downregulated</option>
+    </select>
+  </nav>
+
+  <main>
+    <img id="placeholder" src="group_photo_or_poster.jpg" alt="Project Poster or Group Photo">
+    <iframe id="displayFrame" src=""></iframe>
+  </main>
+
+  <script>
+    function loadPage(page) {
+      const frame = document.getElementById('displayFrame');
+      const img = document.getElementById('placeholder');
+      if (page) {
+        frame.src = page;
+        frame.style.display = 'block';
+        img.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
